@@ -1,17 +1,12 @@
-from abc import ABCMeta  # , abstractmethod
-
 from .flybehaviors import FlyBehavior, FlyWithWings, FlyNoWay
 from .quackbehaviors import QuackBehavior, Quack, Squeak, MuteQuack
 
 
-class Duck(metaclass=ABCMeta):
+class Duck():
 
     def __init__(self, flybehavior: FlyBehavior, quackbehavior: QuackBehavior):
         self.flybehavior = flybehavior()
         self.quackbehavior = quackbehavior()
-
-    # def __init__(self):
-    #     pass
 
     def perform_fly(self):
         self.flybehavior.fly()
@@ -35,6 +30,14 @@ class MallarDuck(Duck):
 
 
 class RobberDuck(Duck):
+    def __init__(
+        self, flybehavior: FlyBehavior = FlyNoWay,
+        quackbehavior: QuackBehavior = Squeak
+    ):
+        super().__init__(flybehavior, quackbehavior)
+
+
+class ModelDuck(Duck):
     def __init__(
         self, flybehavior: FlyBehavior = FlyNoWay,
         quackbehavior: QuackBehavior = MuteQuack
