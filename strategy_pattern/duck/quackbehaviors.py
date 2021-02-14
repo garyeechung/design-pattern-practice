@@ -11,14 +11,14 @@ class QuackBehavior(metaclass=ABCMeta):
 class Quack(QuackBehavior):
 
     def quack(self):
-        print("quack quack")
+        return "quack"
 
 
 class Squeak(QuackBehavior):
     def quack(self):
-        print("squeak squeak")
+        return "squeak"
 
 
 class MuteQuack(QuackBehavior):
     def quack(self):
-        print("<< silence >>")
+        return "<<silence>>"

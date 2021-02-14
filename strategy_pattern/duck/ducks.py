@@ -8,14 +8,17 @@ class Duck():
         self.flybehavior = flybehavior()
         self.quackbehavior = quackbehavior()
 
+    def __repr__(self):
+        return f"I am a {self.__class__.__name__}"
+
     def perform_fly(self):
-        self.flybehavior.fly()
+        return self.flybehavior.fly()
 
     def set_fly_behavior(self, flybehavior: FlyBehavior):
         self.flybehavior = flybehavior()
 
     def perform_quack(self):
-        self.quackbehavior.quack()
+        return self.quackbehavior.quack()
 
     def set_quack_behavior(self, quackbehavior: QuackBehavior):
         self.quackbehavior = quackbehavior()
