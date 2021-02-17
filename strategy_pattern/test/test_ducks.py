@@ -1,7 +1,7 @@
 import unittest
 
-from duck import ducks
-from duck import flybehaviors, quackbehaviors
+from ..duck import ducks
+from ..duck import flybehaviors, quackbehaviors
 
 
 class TestMallarDuck(unittest.TestCase):
