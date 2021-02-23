@@ -9,15 +9,18 @@ class FlyBehavior(metaclass=ABCMeta):
 
 
 class FlyWithWings(FlyBehavior):
+
     def fly(self):
         return "I fly with wings"
 
 
 class FlyNoWay(FlyBehavior):
+
     def fly(self):
         return "I cannot fly"
 
 
 class FlyWithRocket(FlyBehavior):
+
     def fly(self):
         return "I fly with a rocket"
