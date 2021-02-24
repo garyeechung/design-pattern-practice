@@ -8,6 +8,7 @@ class WeatherData(Subject):
         self._temperature = temperature
         self._humidity = humidity
         self._pressure = pressure
+        self._changed = False
 
     @property
     def temperature(self):
@@ -33,19 +34,30 @@ class WeatherData(Subject):
     def pressure(self, arg: float):
         self._pressure = arg
 
+    @property
+    def changed(self):
+        return self._changed
+
+    @changed.setter
+    def changed(self, arg):
+        self._changed = arg
+
     def add_observers(self, observer: Observer):
-        observer.update(self.temperature, self.humidity, self.pressure)
+        observer.update()
         self._observers.add(observer)
 
     def delete_observers(self, observer: Observer):
         self._observers.remove(observer)
 
     def notify_observers(self):
-        for observer in self._observers:
-            observer.update(self.temperature, self.humidity, self.pressure)
+        if self.changed:
+            for observer in self._observers:
+                observer.update()
+        self.changed = False
 
     def set_measurement(self, temperature, humidity, pressure):
         self.temperature = temperature
         self.humidity = humidity
         self.pressure = pressure
+        self.changed = True
         self.notify_observers()

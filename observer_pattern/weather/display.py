@@ -7,8 +7,8 @@ class CurrentConditionDisplay(Observer, DisplayElement):
     def __init__(self, weatherdata: WeatherData):
         self._temperature = None
         self._humidity = None
-        self._weatherdata = weatherdata
-        self._weatherdata.add_observers(self)
+        self.weatherdata = weatherdata
+        self.weatherdata.add_observers(self)
 
     @property
     def temperature(self):
@@ -26,9 +26,9 @@ class CurrentConditionDisplay(Observer, DisplayElement):
     def humidity(self, arg: float):
         self._humidity = arg
 
-    def update(self, temperature: float, humidity: float, pressure: float):
-        self.temperature = temperature
-        self.humidity = humidity
+    def update(self):
+        self.temperature = self.weatherdata.temperature
+        self.humidity = self.weatherdata.humidity
         self.display()
 
     def display(self):
