@@ -43,8 +43,8 @@ class WeatherData(Subject):
         self._changed = arg
 
     def add_observers(self, observer: Observer):
-        observer.update()
         self._observers.add(observer)
+        observer.update()
 
     def delete_observers(self, observer: Observer):
         self._observers.remove(observer)

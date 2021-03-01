@@ -1,14 +1,21 @@
-from abc import ABCMeta, abstractclassmethod
+from abc import ABC, abstractclassmethod
 
 
-class Observer(metaclass=ABCMeta):
+class Observer(ABC):
 
     @abstractclassmethod
     def update(self, temperature: float, humidity: float, pressure: float):
         pass
 
 
-class Subject(metaclass=ABCMeta):
+class DisplayElement(ABC):
+
+    @abstractclassmethod
+    def display(self):
+        pass
+
+
+class Subject(ABC):
 
     @abstractclassmethod
     def add_observers(self, observer: Observer):
@@ -20,11 +27,4 @@ class Subject(metaclass=ABCMeta):
 
     @abstractclassmethod
     def notify_observers(self):
-        pass
-
-
-class DisplayElement(metaclass=ABCMeta):
-
-    @abstractclassmethod
-    def display(self):
         pass
