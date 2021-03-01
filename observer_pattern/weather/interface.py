@@ -1,30 +1,30 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 
 class Observer(ABC):
 
-    @abstractclassmethod
+    @abstractmethod
     def update(self, temperature: float, humidity: float, pressure: float):
         pass
 
 
 class DisplayElement(ABC):
 
-    @abstractclassmethod
+    @abstractmethod
     def display(self):
         pass
 
 
 class Subject(ABC):
 
-    @abstractclassmethod
+    @abstractmethod
     def add_observer(self, observer: Observer):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def delete_observer(self, observer: Observer):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def notify_observers(self):
         pass
