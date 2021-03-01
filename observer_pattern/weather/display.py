@@ -8,7 +8,7 @@ class CurrentConditionDisplay(Observer, DisplayElement):
         self._temperature = None
         self._humidity = None
         self.weatherdata = weatherdata
-        self.weatherdata.add_observers(self)
+        self.weatherdata.add_observer(self)
 
     @property
     def temperature(self):
@@ -47,7 +47,7 @@ class StatisticsDisplay(Observer, DisplayElement):
         self._avg_temperature = None
         self._num_of_measurement = 0
         self.weatherdata = weatherdata
-        self.weatherdata.add_observers(self)
+        self.weatherdata.add_observer(self)
 
     @property
     def temperature(self):

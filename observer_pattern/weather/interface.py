@@ -18,11 +18,11 @@ class DisplayElement(ABC):
 class Subject(ABC):
 
     @abstractclassmethod
-    def add_observers(self, observer: Observer):
+    def add_observer(self, observer: Observer):
         pass
 
     @abstractclassmethod
-    def delete_observers(self, observer: Observer):
+    def delete_observer(self, observer: Observer):
         pass
 
     @abstractclassmethod
